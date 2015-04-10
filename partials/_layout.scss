@@ -1,0 +1,148 @@
+// breakpoints
+   
+$S:     480px;   
+$M:     768px;     
+$L:     1170px;     
+
+// media queries
+
+@mixin MQ($canvas) {
+  @if $canvas == S {
+   @media only screen and (min-width: $S) { @content; } 
+  }
+  @else if $canvas == M {
+   @media only screen and (min-width: $M) { @content; } 
+  }
+  @else if $canvas == L {
+   @media only screen and (min-width: $L) { @content; } 
+  }
+}
+.row {
+	display: block;
+	clear: both;
+	float: none;
+	&:after {
+		content: " ";
+		clear: both;
+		float: none;
+		display: table;
+	}
+}
+.g-60 {
+	width: 60%;
+	float: left;
+}
+.g-40 {
+	width: 40%;
+	float: left;
+	img {
+		border-radius: 50%;
+		width: 20vw;
+		height: 20vw;
+		float: right;
+	}
+}
+@media(max-width: 767px) {
+	.row:nth-child(odd) .g-3 {
+		h6 {
+			padding: 2em 0 .5em;
+		}
+		&:nth-child(odd) {
+			background: rgba($royalblue,.5);
+			transform: skewX(10deg);
+			padding-bottom: 2em;
+		}
+		&:nth-child(even) {
+			background: rgba($hotpink,.5);
+			transform: skewX(-10deg);
+			padding-bottom: 2em;
+		}
+	}
+	.row:nth-child(even) .g-3 {
+		h6 {
+			padding: 2em 0 .5em;
+		}
+		&:nth-child(even) {
+			background: rgba($royalblue,.5);
+			transform: skewX(10deg);
+			padding-bottom: 2em;
+		}
+		&:nth-child(odd) {
+			background: rgba($hotpink,.5);
+			transform: skewX(-10deg);
+			padding-bottom: 2em;
+		}
+	}
+}
+@media(min-width: 768px) {
+	.row {
+		display: block;
+		clear: both;
+		float: none;
+		height: 200px;
+		&:after {
+			content: " ";
+			clear: both;
+			float: none;
+		}
+	}
+	.g-3 {
+		width: 33.3333%;
+		float: left;
+		height: 200px;
+		transition: .5s all ease-in-out;
+		&:nth-child(odd), 
+		&:nth-child(even) {
+			background: transparent;
+			transform: none;
+		}
+		h6 {
+			padding: 2em 0 1em;
+			transition: .5s all ease-in-out;
+			position: absolute;
+			width: 26.5%;
+			@media (min-width: 1170px) {
+				width: 20%;
+			}
+		}
+		&:hover {
+			background: rgba(white,.1);
+			h6 {
+				font-size: 3em;
+				padding: 0;
+				line-height: 1;
+				transform: rotate(-11deg);
+				margin-top: .3em;
+			}
+		}
+		svg {
+			display: block;
+			margin: 0 auto;
+			font-size: 3vw;
+			transition: all 300ms ease-in-out;
+		}
+		ul li {
+			position: relative;
+			top: 5em;
+		}
+		ul li a {
+			line-height: 4;
+			transition: all 300ms ease-in-out;
+			&:hover {
+				svg {
+					transform: scale(1.4);
+				}
+			}
+		}
+	}
+	.g-40 {
+		width: 40%;
+		float: left;
+		img {
+			border-radius: 50%;
+			width: 10vw;
+			height: 10vw;
+			float: right;
+		}
+	}
+}
