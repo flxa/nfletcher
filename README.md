@@ -1,2 +1,2 @@
 # nfletcher
-My personal website/resumè
+My personal website/resumé
